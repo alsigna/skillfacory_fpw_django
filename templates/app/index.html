@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            Загрузить файл:
+            <input type="file" name="sent_file"/>
+            <input type="submit" name="upload_file" value="Upload"/>
+        </div>
+    </form>
+
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            Слово для подсчета:
+            <input type="text" name="word_count"/>
+            <input type="submit" name="get_word_count" value="Count"/>
+        </div>
+    </form>
+
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            Сбросить кеш:
+            <input type="submit" name="clear_cache" value="Clear"/>
+        </div>
+    </form>
+    <br>
+    {% if result %}
+        {{ result }}
+    {% endif %}
+</body>
+</html>
